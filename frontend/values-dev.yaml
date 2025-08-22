@@ -1,3 +1,3 @@
 service:
-  type: LoadBalancer
+  type: ClusterIP
 replicaCount: 2
