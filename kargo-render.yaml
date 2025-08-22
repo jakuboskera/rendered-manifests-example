@@ -2,36 +2,158 @@ configVersion: v1alpha1
 branchConfigs:
 - name: env/dev
   appConfigs:
-    backend:
-      configManagement:
-        path: backend/overlays/dev
-      outputPath: backend
-    
-    frontend:
+    frontend-k8scustomer1dev-01:
       configManagement:
         path: frontend/
         helm:
           releaseName: frontend
           namespace: frontend
           valueFiles:
-          - values-dev.yaml
-      outputPath: frontend/
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/dev/default-stage.yaml
+          - ../values/infra/dev/customer1/default-customer.yaml
+          - ../values/infra/dev/customer1/k8scustomer1dev-01.yaml
+      outputPath: frontend/k8scustomer1dev-01
+    frontend-k8scustomer2dev-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/dev/default-stage.yaml
+          - ../values/infra/dev/customer2/default-customer.yaml
+          - ../values/infra/dev/customer2/k8scustomer2dev-01.yaml
+      outputPath: frontend/k8scustomer2dev-01
+    frontend-k8scustomer3dev-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/dev/default-stage.yaml
+          - ../values/infra/dev/customer3/default-customer.yaml
+          - ../values/infra/dev/customer3/k8scustomer3dev-01.yaml
+      outputPath: frontend/k8scustomer3dev-01
 
-- name: env/prd
+- name: env/test
+  appConfigs:
+    frontend-k8scustomer1test-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/test/default-stage.yaml
+          - ../values/infra/test/customer1/default-customer.yaml
+          - ../values/infra/test/customer1/k8scustomer1test-01.yaml
+      outputPath: frontend/k8scustomer1test-01
+    frontend-k8scustomer2test-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/test/default-stage.yaml
+          - ../values/infra/test/customer2/default-customer.yaml
+          - ../values/infra/test/customer2/k8scustomer2test-01.yaml
+      outputPath: frontend/k8scustomer2test-01
+    frontend-k8scustomer3test-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/test/default-stage.yaml
+          - ../values/infra/test/customer3/default-customer.yaml
+          - ../values/infra/test/customer3/k8scustomer3test-01.yaml
+      outputPath: frontend/k8scustomer3test-01
+
+- name: env/uat
+  appConfigs:
+    frontend-k8scustomer1uat-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/uat/default-stage.yaml
+          - ../values/infra/uat/customer1/default-customer.yaml
+          - ../values/infra/uat/customer1/k8scustomer1uat-01.yaml
+      outputPath: frontend/k8scustomer1uat-01
+    frontend-k8scustomer2uat-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/uat/default-stage.yaml
+          - ../values/infra/uat/customer2/default-customer.yaml
+          - ../values/infra/uat/customer2/k8scustomer2uat-01.yaml
+      outputPath: frontend/k8scustomer2uat-01
+    frontend-k8scustomer3uat-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/uat/default-stage.yaml
+          - ../values/infra/uat/customer3/default-customer.yaml
+          - ../values/infra/uat/customer3/k8scustomer3uat-01.yaml
+      outputPath: frontend/k8scustomer3uat-01
+
+- name: env/prod
   prs:
     enabled: true
   appConfigs:
-    backend:
-      configManagement:
-        path: backend/overlays/prd
-      outputPath: backend
-    
-    frontend:
+    frontend-k8scustomer1prod-01:
       configManagement:
         path: frontend/
         helm:
           releaseName: frontend
           namespace: frontend
           valueFiles:
-          - values-prd.yaml
-      outputPath: frontend/
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/prod/default-stage.yaml
+          - ../values/infra/prod/customer1/default-customer.yaml
+          - ../values/infra/prod/customer1/k8scustomer1prod-01.yaml
+      outputPath: frontend/k8scustomer1prod-01
+    frontend-k8scustomer2prod-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/prod/default-stage.yaml
+          - ../values/infra/prod/customer2/default-customer.yaml
+          - ../values/infra/prod/customer2/k8scustomer2prod-01.yaml
+      outputPath: frontend/k8scustomer2prod-01
+    frontend-k8scustomer3prod-01:
+      configManagement:
+        path: frontend/
+        helm:
+          releaseName: frontend
+          namespace: frontend
+          valueFiles:
+          - ../values/infra/default-infrastructure.yaml
+          - ../values/infra/prod/default-stage.yaml
+          - ../values/infra/prod/customer3/default-customer.yaml
+          - ../values/infra/prod/customer3/k8scustomer3prod-01.yaml
+      outputPath: frontend/k8scustomer3prod-01
