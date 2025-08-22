@@ -21,7 +21,7 @@ spec:
         release: frontend
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.3
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
